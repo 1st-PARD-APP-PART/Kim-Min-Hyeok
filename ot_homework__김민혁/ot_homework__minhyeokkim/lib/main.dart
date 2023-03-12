@@ -40,7 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold( // 앱 레이아웃 설정
-      appBar: AppBar(
+      appBar: AppBar( 
+        centerTitle: true, //아이폰은 앱바 자동 중앙정렬이 되지만 안드로이드는 기본값 좌측이므로
         title: Text(widget.title),
       ),
       body: Center(

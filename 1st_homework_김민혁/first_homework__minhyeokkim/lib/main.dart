@@ -181,8 +181,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(
                   height: 5000,
                   child: GridView.count(
-                    crossAxisCount: 2,
-                    children: List.generate(6, (index) {
+                    crossAxisCount: 3,
+                    children: List.generate(9, (index) {
                       return Card(
                         child: Center(
                           child: Text("Item $index"),

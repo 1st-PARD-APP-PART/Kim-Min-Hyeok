@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1032454984947",
+    "project_id": "pard-week4",
+    "storage_bucket": "pard-week4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1032454984947:android:c8fa219b05b77be5ec5386",
+        "android_client_info": {
+          "package_name": "com.example.semina_week4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1032454984947-49rmu0vtsdi7fd8cvvhv5e3unsalmsqm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUUDEUSAwTaj-SuUpEMIXaPOHXLAtxXxc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1032454984947-49rmu0vtsdi7fd8cvvhv5e3unsalmsqm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1032454984947-hn129rctcp0mbuekj3qs4a13s85rsg4s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.seminaWeek4"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

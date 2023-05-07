@@ -1,0 +1,18 @@
+# This is a generated file; do not edit or check into version control.
+cloud_firestore=/Users/minhyeokkim/.pub-cache/hosted/pub.dev/cloud_firestore-4.5.3/
+cloud_firestore_web=/Users/minhyeokkim/.pub-cache/hosted/pub.dev/cloud_firestore_web-3.4.2/
+desktop_webview_auth=/Users/minhyeokkim/.pub-cache/hosted/pub.dev/desktop_webview_auth-0.0.11/
+firebase_auth=/Users/minhyeokkim/.pub-cache/hosted/pub.dev/firebase_auth-4.5.0/
+firebase_auth_web=/Users/minhyeokkim/.pub-cache/hosted/pub.dev/firebase_auth_web-5.4.0/
+firebase_core=/Users/minhyeokkim/.pub-cache/hosted/pub.dev/firebase_core-2.11.0/
+firebase_core_web=/Users/minhyeokkim/.pub-cache/hosted/pub.dev/firebase_core_web-2.4.0/
+firebase_dynamic_links=/Users/minhyeokkim/.pub-cache/hosted/pub.dev/firebase_dynamic_links-5.1.1/
+google_sign_in=/Users/minhyeokkim/.pub-cache/hosted/pub.dev/google_sign_in-6.1.0/
+google_sign_in_android=/Users/minhyeokkim/.pub-cache/hosted/pub.dev/google_sign_in_android-6.1.14/
+google_sign_in_ios=/Users/minhyeokkim/.pub-cache/hosted/pub.dev/google_sign_in_ios-5.6.2/
+google_sign_in_web=/Users/minhyeokkim/.pub-cache/hosted/pub.dev/google_sign_in_web-0.12.0/
+path_provider=/Users/minhyeokkim/.pub-cache/hosted/pub.dev/path_provider-2.0.14/
+path_provider_android=/Users/minhyeokkim/.pub-cache/hosted/pub.dev/path_provider_android-2.0.27/
+path_provider_foundation=/Users/minhyeokkim/.pub-cache/hosted/pub.dev/path_provider_foundation-2.2.2/
+path_provider_linux=/Users/minhyeokkim/.pub-cache/hosted/pub.dev/path_provider_linux-2.1.10/
+path_provider_windows=/Users/minhyeokkim/.pub-cache/hosted/pub.dev/path_provider_windows-2.1.6/

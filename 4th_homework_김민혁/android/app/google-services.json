@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "282329505089",
+    "project_id": "pard-5th-hw",
+    "storage_bucket": "pard-5th-hw.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:282329505089:android:4dacdb0507804912e095c0",
+        "android_client_info": {
+          "package_name": "com.example.gtk_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "282329505089-l502qps89vngrimua1j47a3tvtrnmgfl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC00lksCCz1vNE6Um-7tojxnk4tnMc83SA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "282329505089-l502qps89vngrimua1j47a3tvtrnmgfl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

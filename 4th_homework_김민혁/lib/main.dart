@@ -31,7 +31,40 @@ final _router = GoRouter(
         GoRoute(
           path: 'sign-in',
           builder: (context, state) {
-            return SignInPage();
+            return SignInScreen(
+              actions: [
+                ForgotPasswordAction(((context, email) {
+                  final uri = Uri(
+                    path: '/google-sign-in/forgot-password',
+                    queryParameters: <String, String?>{
+                      'email': email,
+                    },
+                  );
+                  context.push(uri.toString());
+                })),
+                AuthStateChangeAction(((context, state) {
+                  if (state is SignedIn || state is UserCreated) {
+                    var user = (state is SignedIn)
+                        ? state.user
+                        : (state as UserCreated).credential.user;
+                    if (user == null) {
+                      return;
+                    }
+                    if (state is UserCreated) {
+                      user.updateDisplayName(user.email!.split('@')[0]);
+                    }
+                    if (!user.emailVerified) {
+                      user.sendEmailVerification();
+                      const snackBar = SnackBar(
+                          content: Text(
+                              'Please check your email to verify your email address'));
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }
+                    context.pushReplacement('/');
+                  }
+                })),
+              ],
+            );
           },
         ),
         GoRoute(
@@ -112,32 +145,33 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body : Center(
-        child: Column(
-          children: [
-            SizedBox(height: 200,),
-            ElevatedButton.icon(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.blue,
-              ),
-              onPressed: () async {
-                final credential = await signInWithGoogle();
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('구글 로그인 되었습니다!'),
-                  ),
-                );
-              },
-              icon: const Icon(
-                Icons.g_mobiledata,
-                size: 50,
-              ),
-              label: const Text('Google Login'),
+        body: Center(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 200,
+          ),
+          ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              foregroundColor: Colors.blue,
             ),
-          ],
-        ),
-      )
-    );
+            onPressed: () async {
+              final credential = await signInWithGoogle();
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('구글 로그인 되었습니다!'),
+                ),
+              );
+            },
+            icon: const Icon(
+              Icons.g_mobiledata,
+              size: 50,
+            ),
+            label: const Text('Google Login'),
+          ),
+        ],
+      ),
+    ));
   }
 }

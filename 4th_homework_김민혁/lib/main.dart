@@ -2,13 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
 
 import 'app_state.dart';
 import 'home_page.dart';
@@ -35,7 +35,7 @@ final _router = GoRouter(
               actions: [
                 ForgotPasswordAction(((context, email) {
                   final uri = Uri(
-                    path: '/google-sign-in/forgot-password',
+                    path: '/sign-in/forgot-password',
                     queryParameters: <String, String?>{
                       'email': email,
                     },
@@ -66,6 +66,18 @@ final _router = GoRouter(
               ],
             );
           },
+          routes: [
+            GoRoute(
+              path: 'forgot-password',
+              builder: (context, state) {
+                final arguments = state.queryParams;
+                return ForgotPasswordScreen(
+                  email: arguments['email'],
+                  headerMaxExtent: 200,
+                );
+              },
+            ),
+          ],
         ),
         GoRoute(
           path: 'profile',
@@ -101,20 +113,13 @@ final _router = GoRouter(
 );
 
 Future<UserCredential> signInWithGoogle() async {
-  // Trigger the authentication flow
   final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-  // Obtain the auth details from the request
-  final GoogleSignInAuthentication? googleAuth =
-      await googleUser?.authentication;
-
-  // Create a new credential
+  final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
   final credential = GoogleAuthProvider.credential(
     accessToken: googleAuth?.accessToken,
     idToken: googleAuth?.idToken,
   );
 
-  // Once signed in, return the UserCredential
   return await FirebaseAuth.instance.signInWithCredential(credential);
 }
 
@@ -141,37 +146,23 @@ class App extends StatelessWidget {
   }
 }
 
-class SignInPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: Center(
-      child: Column(
-        children: [
-          SizedBox(
-            height: 200,
-          ),
-          ElevatedButton.icon(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.white,
-              foregroundColor: Colors.blue,
-            ),
-            onPressed: () async {
-              final credential = await signInWithGoogle();
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('구글 로그인 되었습니다!'),
+/*
+ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: Colors.blue,
+                  ),
+                  onPressed: () async {
+                    final credential = await signInWithGoogle();
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('구글 로그인 되었습니다!'),
+                      ),
+                    );
+                  }, 
+                  icon: const Icon(
+                    Icons.g_mobiledata,
+                    size: 50,
+                  ), 
+                  label: const Text('Google Login'),
                 ),
-              );
-            },
-            icon: const Icon(
-              Icons.g_mobiledata,
-              size: 50,
-            ),
-            label: const Text('Google Login'),
-          ),
-        ],
-      ),
-    ));
-  }
-}
+*/
